@@ -738,13 +738,14 @@ if [ -z "$SKIP_IPERF" ]; then
 		"ping6.online.net" "5200-5209" "Online.net" "Paris, FR (10G)" "IPv6" \
 		"speedtest-nl-oum.hybula.net" "5201-5206" "Hybula" "Amsterdam, NL (40G)" "IPv4|IPv6" \
 		"lg.vie.alwyzon.net" "5200-5209" "Alwayzon" "Vienna, Austria (10G)" "IPv4|IPv6" \
-		"speedtest.wtnet.de" "5200-5209" "wilhelm.tel" "Norderstedt, GER (40G)" "IPv4|IPv6" \
+		"fra.speedtest.clouvider.net" "5200-5209" "Clouvider" "Frankfurt, GER (10G)" "IPv4|IPv6" \
 		"speed.itgate.net" "5201-5202" "ITGATE" "Gerbido, IT (10G)" "IPv4" \
-		"iperf3.privatelayer.com" "5201-5201" "Private Layer" "Switzerland (10G)" "IPv4|IPv6" \
+		"iperf.quickline.ch" "5200-5209" "Quickline" "Zürich, CH (10G)" "IPv4|IPv6" \
 		"nyc.speedtest.clouvider.net" "5200-5209" "Clouvider" "NYC, NY, US (10G)" "IPv4|IPv6" \
 		"dal.speedtest.clouvider.net" "5200-5209" "Clouvider" "Dallas, TX, US (10G)" "IPv4|IPv6" \
 		"la.speedtest.clouvider.net" "5200-5209" "Clouvider" "Los Angeles, CA, US (10G)" "IPv4|IPv6" \
 		"162.221.193.194" "5200-5209" "Ark EC" "Kuala Lumpur, MY (1G)" "IPv4" \
+		"156.59.29.2" "5201-5201" "Zenlayer" "Tokyo, JP (1G)" "IPv4" \
 	)
 
 	# if the "REDUCE_NET" flag is activated, then do a shorter iperf test with only three locations
