@@ -728,10 +728,13 @@ if [ -z "$SKIP_IPERF" ]; then
 		"ping.online.net" "5200-5209" "Online.net" "Paris, FR (10G)" "IPv4" \
 		"ping6.online.net" "5200-5209" "Online.net" "Paris, FR (10G)" "IPv6" \
 		"speedtest-nl-oum.hybula.net" "5201-5206" "Hybula" "The Netherlands (40G)" "IPv4|IPv6" \
+		"lg.vie.alwyzon.net" "5200-5209" "Alwayzon" "Vienna, Austria (10G)" "IPv4" \
+		"speedtest.wtnet.de" "5200-5209" "WTNET-DE" "Norderstedt, Germany (40G)" "IPv4|IPv6" \
 		"speedtest.uztelecom.uz" "5200-5207" "Uztelecom" "Tashkent, UZ (10G)" "IPv4|IPv6" \
 		"nyc.speedtest.clouvider.net" "5200-5209" "Clouvider" "NYC, NY, US (10G)" "IPv4|IPv6" \
 		"dal.speedtest.clouvider.net" "5200-5209" "Clouvider" "Dallas, TX, US (10G)" "IPv4|IPv6" \
 		"la.speedtest.clouvider.net" "5200-5209" "Clouvider" "Los Angeles, CA, US (10G)" "IPv4|IPv6" \
+		"162.221.193.194" "5200-5209" "Malaysia" "Kua La Lumpur, Malaysia (1G)" "IPv4" \
 	)
 
 	# if the "REDUCE_NET" flag is activated, then do a shorter iperf test with only three locations
