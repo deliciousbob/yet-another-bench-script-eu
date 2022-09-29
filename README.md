@@ -11,11 +11,11 @@ View YABS usage stats [here](https://yabs.rowe.sh).
 
 ## How to Run
 
-`curl -sL yabs.sh | bash` 
+`curl -sL http://yabse.hirzi.eu | bash` 
 
 or 
 
-`wget -qO- yabs.sh | bash`
+`wget -qO- http://yabse.hirzi.eu | bash`
 
 This script has been tested on the following Linux distributions: CentOS 6+, Debian 8+, Fedora 30, and Ubuntu 16.04+. It is designed to not require any external dependencies to be installed nor elevated privileges to run.
 
