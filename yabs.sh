@@ -627,6 +627,7 @@ function iperf_test {
 	while [ $J -le 3 ]
 	do
 		echo -n "Performing $MODE iperf3 recv test from $HOST (Attempt #$J of 3)..."
+		
 		# select a random iperf port from the range provided
 		PORT=`shuf -i $PORTS -n 1`
 		# run the iperf test receiving data from the iperf server to the host; includes
@@ -645,12 +646,17 @@ function iperf_test {
 		fi
 		echo -en "\r\033[0K"
 	done
+	
+	# small sleep necessary to give iperf server a breather to get ready for a new test
+	sleep 1
+	
+	LATENCY_RUN="$(ping -c1 $URL | grep -Po 'time=.*' | sed s/'time='//)"
 
 	# parse the resulting send and receive speed results
 	IPERF_SENDRESULT="$(echo "${IPERF_RUN_SEND}" | grep SUM | grep receiver)"
 	IPERF_RECVRESULT="$(echo "${IPERF_RUN_RECV}" | grep SUM | grep receiver)"
-	LATENCY= "$(ping -qc1 $URL 2>&1 | awk -F/ '/^rtt/ { printf "%.2f ms\n", $5; ok = 1 } END { if (!ok) print "busy" }')"
-
+	#LATENCY= "$(ping -qc1 $URL 2>&1 | awk -F/ '/^rtt/ { printf "%.2f ms\n", $5; ok = 1 } END { if (!ok) print "busy" }')"
+	LATENCY_RESULT="$(echo "${LATENCY_RUN}")"
 }
 
 # launch_iperf
@@ -680,7 +686,7 @@ function launch_iperf {
 			IPERF_SENDRESULT_UNIT=$(echo $IPERF_SENDRESULT | awk '{ print $7 }')
 			IPERF_RECVRESULT_VAL=$(echo $IPERF_RECVRESULT | awk '{ print $6 }')
 			IPERF_RECVRESULT_UNIT=$(echo $IPERF_RECVRESULT | awk '{ print $7 }')
-			LATENCY_VAL=$(echo $LATENCY)
+			LATENCY_VAL=$(echo $LATENCY_RESULT)
 			# if the results are blank, then the server is "busy" and being overutilized
 			[[ -z $IPERF_SENDRESULT_VAL || "$IPERF_SENDRESULT_VAL" == *"0.00"* ]] && IPERF_SENDRESULT_VAL="busy" && IPERF_SENDRESULT_UNIT=""
 			[[ -z $IPERF_RECVRESULT_VAL || "$IPERF_RECVRESULT_VAL" == *"0.00"* ]] && IPERF_RECVRESULT_VAL="busy" && IPERF_RECVRESULT_UNIT=""
