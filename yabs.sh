@@ -671,6 +671,7 @@ function launch_iperf {
 	echo -e "iperf3 Network Speed Tests ($MODE):"
 	echo -e "---------------------------------"
 	printf "%-15s | %-25s | %-15s | %-15s | %-15s\n" "Provider" "Location (Link)" "Send Speed" "Recv Speed" "Latency"
+	printf "%-15s | %-25s | %-15s | %-15s | %-15s\n" "-----" "-----" "----" "----" "----"
 	
 	# loop through iperf locations array to run iperf test using each public iperf server
 	for (( i = 0; i < IPERF_LOCS_NUM; i++ )); do
