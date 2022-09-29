@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Yet Another Bench Script by Mason Rowe
-# Initial Oct 2019; Last update Aug 2022
+# Initial Oct 2019; Last update SEP 2022
 #
 # Disclaimer: This project is a work in progress. Any errors or suggestions should be
 #             relayed to me via the GitHub project page linked below.
@@ -12,13 +12,13 @@
 #             performance via fio. The script is designed to not require any dependencies
 #             - either compiled or installed - nor admin privileges to run.
 #
-YABS_VERSION="v2022-08-20"
+YABS_VERSION="v2022-09-29"
 
-echo -e '# ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #'
-echo -e '#              Yet-Another-Bench-Script              #'
-echo -e '#                     '$YABS_VERSION'                    #'
-echo -e '# https://github.com/masonr/yet-another-bench-script #'
-echo -e '# ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #'
+echo -e '# ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #'
+echo -e '#              Yet-Another-Bench-Script                       #'
+echo -e '#                     '$YABS_VERSION'                             #'
+echo -e '# https://github.com/deliciousbob/yet-another-bench-script-eu #'
+echo -e '# ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #'
 
 echo -e
 date
@@ -477,7 +477,7 @@ elif [ -z "$SKIP_FIO" ]; then
 		fi
 
 		if [[ $warning -eq 1 ]];then
-			echo -en "\nWarning! You are running YABS on a ZFS Filesystem and your disk space is too low for the fio test. Your test results will be inaccurate. You need at least $mul_spa GB free in order to complete this test accurately. For more information, please see https://github.com/masonr/yet-another-bench-script/issues/13\n"
+			echo -en "\nWarning! You are running YABS on a ZFS Filesystem and your disk space is too low for the fio test. Your test results will be inaccurate. You need at least $mul_spa GB free in order to complete this test accurately. For more information, please see https://github.com/deliciousbob/yet-another-bench-script-eu/issues/13\n"
 		fi
 	fi
 	
@@ -492,9 +492,9 @@ elif [ -z "$SKIP_FIO" ]; then
 	else
 		# download fio binary
 		if [[ ! -z $LOCAL_CURL ]]; then
-			curl -s --connect-timeout 5 --retry 5 --retry-delay 0 https://raw.githubusercontent.com/masonr/yet-another-bench-script/master/bin/fio/fio_$ARCH -o $DISK_PATH/fio
+			curl -s --connect-timeout 5 --retry 5 --retry-delay 0 https://raw.githubusercontent.com/deliciousbob/yet-another-bench-script-eu/master/bin/fio/fio_$ARCH -o $DISK_PATH/fio
 		else
-			wget -q -T 5 -t 5 -w 0 https://raw.githubusercontent.com/masonr/yet-another-bench-script/master/bin/fio/fio_$ARCH -O $DISK_PATH/fio
+			wget -q -T 5 -t 5 -w 0 https://raw.githubusercontent.com/deliciousbob/yet-another-bench-script-eu/master/bin/fio/fio_$ARCH -O $DISK_PATH/fio
 		fi
 
 		if [ ! -f "$DISK_PATH/fio" ]; then # ensure fio binary download successfully
@@ -647,9 +647,7 @@ function iperf_test {
 		echo -en "\r\033[0K"
 	done
 	
-	# small sleep necessary to give iperf server a breather to get ready for a new test
-	sleep 1
-	
+	# Run Latency test via ping -c1 command
 	LATENCY_RUN="$(ping -c1 $URL | grep -Po 'time=.*' | sed s/'time='//)"
 
 	# parse the resulting send and receive speed results
@@ -711,9 +709,9 @@ if [ -z "$SKIP_IPERF" ]; then
 
 		# download iperf3 binary
 		if [[ ! -z $LOCAL_CURL ]]; then
-			curl -s --connect-timeout 5 --retry 5 --retry-delay 0 https://raw.githubusercontent.com/masonr/yet-another-bench-script/master/bin/iperf/iperf3_$ARCH -o $IPERF_PATH/iperf3
+			curl -s --connect-timeout 5 --retry 5 --retry-delay 0 https://raw.githubusercontent.com/deliciousbob/yet-another-bench-script-eu/master/bin/iperf/iperf3_$ARCH -o $IPERF_PATH/iperf3
 		else
-			wget -q -T 5 -t 5 -w 0 https://raw.githubusercontent.com/masonr/yet-another-bench-script/master/bin/iperf/iperf3_$ARCH -O $IPERF_PATH/iperf3
+			wget -q -T 5 -t 5 -w 0 https://raw.githubusercontent.com/deliciousbob/yet-another-bench-script-eu/master/bin/iperf/iperf3_$ARCH -O $IPERF_PATH/iperf3
 		fi
 
 		if [ ! -f "$IPERF_PATH/iperf3" ]; then # ensure iperf3 binary downloaded successfully
