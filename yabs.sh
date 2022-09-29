@@ -649,7 +649,8 @@ function iperf_test {
 	# parse the resulting send and receive speed results
 	IPERF_SENDRESULT="$(echo "${IPERF_RUN_SEND}" | grep SUM | grep receiver)"
 	IPERF_RECVRESULT="$(echo "${IPERF_RUN_RECV}" | grep SUM | grep receiver)"
-	LATENCY= (ping -qc1 $URL 2>&1 | awk -F/ '/^rtt/ { printf "%.2f ms\n", $5; ok = 1 } END { if (!ok) print "busy" }')
+	LATENCY= "$(ping -qc1 $URL 2>&1 | awk -F/ '/^rtt/ { printf "%.2f ms\n", $5; ok = 1 } END { if (!ok) print "busy" }')"
+
 }
 
 # launch_iperf
