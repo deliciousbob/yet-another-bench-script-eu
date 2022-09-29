@@ -731,7 +731,7 @@ if [ -z "$SKIP_IPERF" ]; then
 		"lg.vie.alwyzon.net" "5200-5209" "Alwayzon" "Vienna, Austria (10G)" "IPv4|IPv6" \
 		"speedtest.wtnet.de" "5200-5209" "wilhelm.tel" "Norderstedt, GER (40G)" "IPv4|IPv6" \
 		"speed.itgate.net" "5201-5202" "ITGATE" "Gerbido, IT (10G)" "IPv4" \
-		"iperf3.privatelayer.com" "5201" "Private Layer" "Switzerland (10G)" "IPv4|IPv6" \
+		"iperf3.privatelayer.com" "5201-5201" "Private Layer" "Switzerland (10G)" "IPv4|IPv6" \
 		"nyc.speedtest.clouvider.net" "5200-5209" "Clouvider" "NYC, NY, US (10G)" "IPv4|IPv6" \
 		"dal.speedtest.clouvider.net" "5200-5209" "Clouvider" "Dallas, TX, US (10G)" "IPv4|IPv6" \
 		"la.speedtest.clouvider.net" "5200-5209" "Clouvider" "Los Angeles, CA, US (10G)" "IPv4|IPv6" \
